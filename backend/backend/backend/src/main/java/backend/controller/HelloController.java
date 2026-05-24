@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
+    @GetMapping("/")
+    public String home() {
+        return "CyberNotes backend is running! Use /hello or /api/users/register";
+    }
+
     @GetMapping("/hello")
     public String hello() {
         return "Backend is working!";
