@@ -15,3 +15,5 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 
     Optional<Note> findByIdAndUser(Long id, User user);
 }
+
+// Javadoc: Repository interface for CRUD operations on Note entities.
