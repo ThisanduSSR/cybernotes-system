@@ -67,3 +67,4 @@ public class User {
         this.notes = notes;
     }
 }
+// Javadoc: Represents the primary User security model with authentication parameters.
