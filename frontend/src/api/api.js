@@ -35,3 +35,5 @@ export const notesAPI = {
 };
 
 export default api;
+
+// Developer Note: Axios requests automatically intercept and append active Bearer token.
