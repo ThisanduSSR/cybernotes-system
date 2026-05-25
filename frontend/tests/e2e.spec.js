@@ -46,11 +46,6 @@ test("E2E: register, login, create note", async ({ page }) => {
 
   // Wait and assert the note appears
   await page.waitForTimeout(1000);
-  // debug: save page content and screenshot to workspace for inspection
-  const fs = require("fs");
-  const debugHtml = await page.content();
-  fs.writeFileSync("test-debug-dashboard.html", debugHtml);
-  await page.screenshot({ path: "test-debug-dashboard.png", fullPage: true });
   await page.waitForSelector("text=E2E Note Title", { timeout: 10000 });
   const note = await page.locator("text=E2E Note Title").first();
   expect(await note.isVisible()).toBeTruthy();
