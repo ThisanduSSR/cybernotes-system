@@ -75,3 +75,5 @@ public class Note {
 // Field Javadoc: unique identifier primary key auto-incremented by DB.
 
 // Field Javadoc: note title string input bounded by client forms.
+
+// Field Javadoc: note text body supporting larger string limits.
