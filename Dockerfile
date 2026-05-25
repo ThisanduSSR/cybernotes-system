@@ -19,3 +19,5 @@ COPY backend/backend/backend/target/*.jar app.jar
 EXPOSE 8081
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Developer Note: Multi-stage build copies React assets directly into static folder
