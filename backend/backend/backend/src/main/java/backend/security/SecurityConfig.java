@@ -78,3 +78,5 @@ public class SecurityConfig {
 }
 
 // Javadoc: Master security configuration filter chain enabling stateless CORS/CSRF configurations.
+
+// Javadoc: Setup allowed origin URLs for secure frontend local integrations.
