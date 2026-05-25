@@ -33,3 +33,5 @@ public class CustomUserDetailsService implements UserDetailsService {
         );
     }
 }
+
+// Javadoc: Implements Spring Security UserDetailsService to load user credentials.
