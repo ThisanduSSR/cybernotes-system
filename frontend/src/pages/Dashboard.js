@@ -18,12 +18,19 @@ function Dashboard() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [newNote, setNewNote] = useState({ noteTitle: "", noteContent: "" });
+  const [searchTerm, setSearchTerm] = useState("");
 
   const userName = localStorage.getItem("user")?.split("@")[0] || "Note Keeper";
   const latestNoteDate =
     notes.length > 0
       ? new Date(notes[notes.length - 1].createdDate).toLocaleDateString()
       : "N/A";
+
+  const filteredNotes = notes.filter(
+    (note) =>
+      note.noteTitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      note.noteContent.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   useEffect(() => {
     fetchNotes();
@@ -120,13 +127,22 @@ function Dashboard() {
         </Col>
       </Row>
 
-      <Row className="mb-4">
-        <Col md={8}>
-          <h2 className="text-white">My Notes</h2>
+      <Row className="mb-4 align-items-center">
+        <Col md={5} xs={12} className="mb-3 mb-md-0">
+          <h2 className="text-white mb-0">My Notes</h2>
         </Col>
-        <Col md={4} className="text-end">
-          <Button variant="light" onClick={fetchNotes} disabled={loading}>
-            {loading ? "Refreshing..." : "Refresh"}
+        <Col md={5} xs={8}>
+          <Form.Control
+            type="text"
+            placeholder="🔍 Search notes by title or content..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{ borderRadius: '20px', background: 'rgba(15, 23, 42, 0.7)', borderColor: 'rgba(255, 255, 255, 0.12)' }}
+          />
+        </Col>
+        <Col md={2} xs={4} className="text-end">
+          <Button variant="light" onClick={fetchNotes} disabled={loading} style={{ borderRadius: '20px', width: '100%' }}>
+            {loading ? "..." : "Refresh"}
           </Button>
         </Col>
       </Row>
@@ -190,8 +206,14 @@ function Dashboard() {
                 No notes yet. Create your first note!
               </Alert>
             </Col>
+          ) : filteredNotes.length === 0 ? (
+            <Col md={12}>
+              <Alert variant="warning">
+                No notes found matching "{searchTerm}".
+              </Alert>
+            </Col>
           ) : (
-            notes.map((note) => (
+            filteredNotes.map((note) => (
               <Col md={4} key={note.id} className="mb-4">
                 <NoteCard
                   note={note}
