@@ -232,3 +232,5 @@ function Dashboard() {
 export default Dashboard;
 
 // Developer Note: Search query state updates trigger instant local filtering of list.
+
+// Developer Note: Statistics calculate total note counts dynamically from notes state.
