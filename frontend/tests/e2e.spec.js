@@ -13,12 +13,12 @@ test("E2E: register, login, create note", async ({ page }) => {
 
   // Register and login via backend API to obtain JWT, then set token in localStorage
   const registerResp = await page.request.post(
-    "http://localhost:8081/api/users/register",
+    "http://127.0.0.1:8081/api/users/register",
     { data: { name, email, password } },
   );
   expect([200, 201]).toContain(registerResp.status());
   const loginResp = await page.request.post(
-    "http://localhost:8081/api/users/login",
+    "http://127.0.0.1:8081/api/users/login",
     { data: { email, password } },
   );
   expect(loginResp.ok()).toBeTruthy();
