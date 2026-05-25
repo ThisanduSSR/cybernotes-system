@@ -62,3 +62,5 @@ public class JwtUtils {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 }
+
+// Javadoc: Utility class to generate, parse, and validate secure JSON Web Tokens.
