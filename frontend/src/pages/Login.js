@@ -88,3 +88,5 @@ function Login({ setIsAuthenticated }) {
 }
 
 export default Login;
+
+// Developer Note: Password strength checks and validation can be integrated here.
