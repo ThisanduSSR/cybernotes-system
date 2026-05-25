@@ -73,3 +73,5 @@ public class Note {
 // Javadoc: Represents the primary relational Note model linked to users.
 
 // Field Javadoc: unique identifier primary key auto-incremented by DB.
+
+// Field Javadoc: note title string input bounded by client forms.
