@@ -127,3 +127,5 @@ function Register() {
 }
 
 export default Register;
+
+// Developer Note: Ensures password and confirmPassword inputs match before registration.
