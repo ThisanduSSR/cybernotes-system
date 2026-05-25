@@ -80,3 +80,5 @@ public class NoteController {
 }
 
 // Javadoc: REST controller managing notes CRUD endpoints requiring active authentication.
+
+// Javadoc: Endpoint to register note under active security principal ownership.
