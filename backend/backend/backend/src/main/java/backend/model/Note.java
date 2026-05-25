@@ -69,3 +69,5 @@ public class Note {
         this.user = user;
     }
 }
+
+// Javadoc: Represents the primary relational Note model linked to users.
