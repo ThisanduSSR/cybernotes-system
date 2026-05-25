@@ -230,3 +230,5 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
+// Developer Note: Search query state updates trigger instant local filtering of list.
