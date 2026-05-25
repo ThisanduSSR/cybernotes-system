@@ -50,3 +50,5 @@ test("E2E: register, login, create note", async ({ page }) => {
   const note = await page.locator("text=E2E Note Title").first();
   expect(await note.isVisible()).toBeTruthy();
 });
+
+// Developer Note: Asserts that notes are created, displayed, and interactable.
