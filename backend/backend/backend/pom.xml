@@ -148,3 +148,5 @@
 	</build>
 
 </project>
+
+<!-- Developer Note: Confirms JDK 21 and Spring Boot 4.0.6 dependencies -->
