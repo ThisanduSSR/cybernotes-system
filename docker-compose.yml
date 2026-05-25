@@ -35,3 +35,5 @@ services:
 
 volumes:
   mysql_data:
+
+# Developer Note: Healthcheck configuration secures DB boot sync
