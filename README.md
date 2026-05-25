@@ -181,3 +181,5 @@ For questions or support, please contact the development team.
 **Status**: Production Ready ✅
 
 <!-- Developer Note: Documented environment variables for production -->
+
+<!-- Developer Note: Added section for local test running commands -->
