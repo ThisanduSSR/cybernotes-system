@@ -76,3 +76,5 @@ public class SecurityConfig {
         return source;
     }
 }
+
+// Javadoc: Master security configuration filter chain enabling stateless CORS/CSRF configurations.
