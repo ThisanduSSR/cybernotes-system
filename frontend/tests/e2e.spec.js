@@ -52,3 +52,5 @@ test("E2E: register, login, create note", async ({ page }) => {
 });
 
 // Developer Note: Asserts that notes are created, displayed, and interactable.
+
+// Developer Note: Generates unique emails to prevent signup conflicts in test runs.
