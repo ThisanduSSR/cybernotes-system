@@ -52,3 +52,5 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         return null;
     }
 }
+
+// Javadoc: Intercepts request headers to validate Bearer JWT token signature.
