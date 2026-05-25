@@ -68,3 +68,5 @@ public class User {
     }
 }
 // Javadoc: Represents the primary User security model with authentication parameters.
+
+// Javadoc: user name field stored in plaintext for profile visualization.
