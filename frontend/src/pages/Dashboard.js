@@ -18,7 +18,6 @@ function Dashboard() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [newNote, setNewNote] = useState({ noteTitle: "", noteContent: "" });
-  const [editingNote, setEditingNote] = useState(null);
 
   useEffect(() => {
     fetchNotes();

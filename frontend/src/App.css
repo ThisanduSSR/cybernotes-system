@@ -152,8 +152,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 2;
-  background: rgba(8, 15, 37, 0.94) !important;
+  background: rgba(8, 15, 37, 0.98) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.4rem 0;
+}
+
+.app-navbar .navbar-collapse {
+  backdrop-filter: blur(18px);
 }
 
 .navbar-brand,
@@ -162,8 +167,77 @@ body {
   color: #e2e8f0 !important;
 }
 
-.nav-link:hover {
-  color: #7c3aed !important;
+.navbar-brand {
+  font-size: 1rem;
+}
+
+.brand-icon {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+}
+
+.brand-title {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: rgba(226, 232, 240, 0.75);
+  line-height: 1.2;
+}
+
+.nav-action {
+  margin-right: 0.65rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  color: #eef2ff !important;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.nav-action:hover,
+.nav-action:focus {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff !important;
+  border-color: rgba(124, 58, 237, 0.45);
+}
+
+.nav-user {
+  color: rgba(226, 232, 240, 0.88) !important;
+  font-weight: 500;
+}
+
+.nav-logout {
+  min-width: 108px;
+}
+
+@media (max-width: 992px) {
+  .app-container {
+    padding: 22px 18px 32px;
+  }
+
+  .navbar-brand {
+    font-size: 0.95rem;
+  }
+
+  .nav-action {
+    margin: 0.35rem 0;
+  }
+
+  .navbar-collapse {
+    background: rgba(8, 15, 37, 0.96);
+    margin-top: 0.75rem;
+    border-radius: 0.85rem;
+    padding: 1rem;
+  }
 }
 
 .splash-screen {
