@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { Container, Form, Button, Alert, Card } from 'react-bootstrap';
-import { userAPI } from '../api/api';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { Container, Form, Button, Alert, Card } from "react-bootstrap";
+import { userAPI } from "../api/api";
 
 function Register() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -24,11 +24,11 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
+    setError("");
+    setSuccess("");
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setError("Passwords do not match");
       return;
     }
 
@@ -36,21 +36,24 @@ function Register() {
       setLoading(true);
       const { confirmPassword, ...userData } = formData;
       await userAPI.register(userData);
-      setSuccess('Registration successful! Redirecting to login...');
-      setTimeout(() => navigate('/login'), 2000);
+      setSuccess("Registration successful! Redirecting to login...");
+      setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
-      setError(err.response?.data || 'Registration failed. Please try again.');
+      setError(err.response?.data || "Registration failed. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
-      <Card className="w-100" style={{ maxWidth: '400px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+    <Container
+      className="d-flex justify-content-center align-items-center"
+      style={{ minHeight: "80vh" }}
+    >
+      <Card className="w-100 glass-card" style={{ maxWidth: "400px" }}>
         <Card.Body>
           <h3 className="text-center mb-4">Register to CyberNotes</h3>
-          
+
           {error && <Alert variant="danger">{error}</Alert>}
           {success && <Alert variant="success">{success}</Alert>}
 
@@ -103,8 +106,13 @@ function Register() {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit" className="w-100" disabled={loading}>
-              {loading ? 'Registering...' : 'Register'}
+            <Button
+              variant="primary"
+              type="submit"
+              className="w-100"
+              disabled={loading}
+            >
+              {loading ? "Registering..." : "Register"}
             </Button>
           </Form>
 

@@ -38,10 +38,7 @@ function Login({ setIsAuthenticated }) {
       className="d-flex justify-content-center align-items-center"
       style={{ minHeight: "80vh" }}
     >
-      <Card
-        className="w-100"
-        style={{ maxWidth: "400px", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}
-      >
+      <Card className="w-100 glass-card" style={{ maxWidth: "400px" }}>
         <Card.Body>
           <h3 className="text-center mb-4">Login to CyberNotes</h3>
 

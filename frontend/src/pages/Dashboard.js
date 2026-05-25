@@ -1,14 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button, Form, Card, Alert, Spinner } from 'react-bootstrap';
-import { notesAPI } from '../api/api';
-import NoteCard from '../components/NoteCard';
+import React, { useState, useEffect } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Form,
+  Card,
+  Alert,
+  Spinner,
+} from "react-bootstrap";
+import { notesAPI } from "../api/api";
+import NoteCard from "../components/NoteCard";
 
 function Dashboard() {
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-  const [newNote, setNewNote] = useState({ noteTitle: '', noteContent: '' });
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [newNote, setNewNote] = useState({ noteTitle: "", noteContent: "" });
   const [editingNote, setEditingNote] = useState(null);
 
   useEffect(() => {
@@ -21,7 +30,7 @@ function Dashboard() {
       const response = await notesAPI.getAll();
       setNotes(response.data);
     } catch (err) {
-      setError('Failed to fetch notes');
+      setError("Failed to fetch notes");
     } finally {
       setLoading(false);
     }
@@ -30,7 +39,7 @@ function Dashboard() {
   const handleCreateNote = async (e) => {
     e.preventDefault();
     if (!newNote.noteTitle || !newNote.noteContent) {
-      setError('Title and content are required');
+      setError("Title and content are required");
       return;
     }
 
@@ -38,11 +47,11 @@ function Dashboard() {
       setLoading(true);
       const response = await notesAPI.create(newNote);
       setNotes([...notes, response.data]);
-      setNewNote({ noteTitle: '', noteContent: '' });
-      setSuccess('Note created successfully!');
-      setTimeout(() => setSuccess(''), 3000);
+      setNewNote({ noteTitle: "", noteContent: "" });
+      setSuccess("Note created successfully!");
+      setTimeout(() => setSuccess(""), 3000);
     } catch (err) {
-      setError('Failed to create note');
+      setError("Failed to create note");
     } finally {
       setLoading(false);
     }
@@ -51,22 +60,22 @@ function Dashboard() {
   const handleDeleteNote = async (id) => {
     try {
       await notesAPI.delete(id);
-      setNotes(notes.filter(note => note.id !== id));
-      setSuccess('Note deleted successfully!');
-      setTimeout(() => setSuccess(''), 3000);
+      setNotes(notes.filter((note) => note.id !== id));
+      setSuccess("Note deleted successfully!");
+      setTimeout(() => setSuccess(""), 3000);
     } catch (err) {
-      setError('Failed to delete note');
+      setError("Failed to delete note");
     }
   };
 
   const handleUpdateNote = async (id, updatedData) => {
     try {
       const response = await notesAPI.update(id, updatedData);
-      setNotes(notes.map(note => note.id === id ? response.data : note));
-      setSuccess('Note updated successfully!');
-      setTimeout(() => setSuccess(''), 3000);
+      setNotes(notes.map((note) => (note.id === id ? response.data : note)));
+      setSuccess("Note updated successfully!");
+      setTimeout(() => setSuccess(""), 3000);
     } catch (err) {
-      setError('Failed to update note');
+      setError("Failed to update note");
     }
   };
 
@@ -78,7 +87,7 @@ function Dashboard() {
         </Col>
         <Col md={4} className="text-end">
           <Button variant="light" onClick={fetchNotes} disabled={loading}>
-            {loading ? 'Refreshing...' : 'Refresh'}
+            {loading ? "Refreshing..." : "Refresh"}
           </Button>
         </Col>
       </Row>
@@ -88,7 +97,7 @@ function Dashboard() {
 
       <Row className="mb-4">
         <Col md={12}>
-          <Card className="bg-dark text-white">
+          <Card className="glass-card">
             <Card.Body>
               <h5>Create New Note</h5>
               <Form onSubmit={handleCreateNote}>
@@ -98,7 +107,9 @@ function Dashboard() {
                     type="text"
                     placeholder="Note title"
                     value={newNote.noteTitle}
-                    onChange={(e) => setNewNote({ ...newNote, noteTitle: e.target.value })}
+                    onChange={(e) =>
+                      setNewNote({ ...newNote, noteTitle: e.target.value })
+                    }
                     required
                   />
                 </Form.Group>
@@ -110,13 +121,15 @@ function Dashboard() {
                     rows={3}
                     placeholder="Note content"
                     value={newNote.noteContent}
-                    onChange={(e) => setNewNote({ ...newNote, noteContent: e.target.value })}
+                    onChange={(e) =>
+                      setNewNote({ ...newNote, noteContent: e.target.value })
+                    }
                     required
                   />
                 </Form.Group>
 
                 <Button variant="primary" type="submit" disabled={loading}>
-                  {loading ? 'Creating...' : 'Create Note'}
+                  {loading ? "Creating..." : "Create Note"}
                 </Button>
               </Form>
             </Card.Body>
@@ -134,10 +147,12 @@ function Dashboard() {
         <Row>
           {notes.length === 0 ? (
             <Col md={12}>
-              <Alert variant="info">No notes yet. Create your first note!</Alert>
+              <Alert variant="info">
+                No notes yet. Create your first note!
+              </Alert>
             </Col>
           ) : (
-            notes.map(note => (
+            notes.map((note) => (
               <Col md={4} key={note.id} className="mb-4">
                 <NoteCard
                   note={note}
