@@ -78,3 +78,5 @@ public class NoteController {
                 .orElse(ResponseEntity.notFound().build());
     }
 }
+
+// Javadoc: REST controller managing notes CRUD endpoints requiring active authentication.
