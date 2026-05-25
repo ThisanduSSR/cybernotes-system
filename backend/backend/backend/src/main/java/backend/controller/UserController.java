@@ -53,3 +53,4 @@ public class UserController {
         return ResponseEntity.ok(new JwtResponse(token));
     }
 }
+// Javadoc: REST controller managing user authentication, registration, and login flows.
