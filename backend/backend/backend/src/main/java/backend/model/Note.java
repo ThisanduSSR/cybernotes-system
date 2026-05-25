@@ -77,3 +77,5 @@ public class Note {
 // Field Javadoc: note title string input bounded by client forms.
 
 // Field Javadoc: note text body supporting larger string limits.
+
+// Field Javadoc: timestamp of creation assigned automatically on save.
