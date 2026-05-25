@@ -86,3 +86,5 @@ function NoteCard({ note, onDelete, onUpdate }) {
 }
 
 export default NoteCard;
+
+// Developer Note: Glass card borders use semi-transparent white boundaries to mimic glass effect.
