@@ -54,3 +54,5 @@ public class UserController {
     }
 }
 // Javadoc: REST controller managing user authentication, registration, and login flows.
+
+// Javadoc: Securely handles login request returning active JWT authentication string.
