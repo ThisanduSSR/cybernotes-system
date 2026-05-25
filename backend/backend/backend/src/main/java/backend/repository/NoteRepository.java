@@ -17,3 +17,5 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 }
 
 // Javadoc: Repository interface for CRUD operations on Note entities.
+
+// Javadoc: Custom finder query to isolate notes by user ownership.
