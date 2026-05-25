@@ -14,3 +14,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     boolean existsByEmail(String email);
 }
 // Javadoc: Repository interface for database query operations on User entities.
+
+// Javadoc: Custom query to check email registration duplicates.
