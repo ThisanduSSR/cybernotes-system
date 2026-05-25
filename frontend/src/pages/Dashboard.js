@@ -19,6 +19,12 @@ function Dashboard() {
   const [success, setSuccess] = useState("");
   const [newNote, setNewNote] = useState({ noteTitle: "", noteContent: "" });
 
+  const userName = localStorage.getItem("user")?.split("@")[0] || "Note Keeper";
+  const latestNoteDate =
+    notes.length > 0
+      ? new Date(notes[notes.length - 1].createdDate).toLocaleDateString()
+      : "N/A";
+
   useEffect(() => {
     fetchNotes();
   }, []);
@@ -80,6 +86,40 @@ function Dashboard() {
 
   return (
     <Container className="py-5">
+      <Row className="mb-4 align-items-center">
+        <Col lg={8} className="mb-3 mb-lg-0">
+          <Card className="glass-card welcome-card">
+            <Card.Body>
+              <h4 className="mb-2">Welcome back, {userName}!</h4>
+              <p className="text-muted mb-0">
+                Your secure notes dashboard is ready. Create a new note, refresh
+                your list, or manage existing items in one place.
+              </p>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={4}>
+          <Row>
+            <Col xs={6} className="mb-3">
+              <Card className="glass-card stat-card">
+                <Card.Body>
+                  <small>Total Notes</small>
+                  <div className="stat-value">{notes.length}</div>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col xs={6} className="mb-3">
+              <Card className="glass-card stat-card">
+                <Card.Body>
+                  <small>Latest</small>
+                  <div className="stat-value">{latestNoteDate}</div>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+
       <Row className="mb-4">
         <Col md={8}>
           <h2 className="text-white">My Notes</h2>
