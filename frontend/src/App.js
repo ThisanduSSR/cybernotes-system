@@ -37,6 +37,10 @@ function App() {
           <span />
           <span />
           <span />
+          <div className="background-node" />
+          <div className="background-node" />
+          <div className="background-node" />
+          <div className="background-node" />
         </div>
         <SplashScreen />
       </div>
@@ -50,6 +54,10 @@ function App() {
         <span />
         <span />
         <span />
+        <div className="background-node" />
+        <div className="background-node" />
+        <div className="background-node" />
+        <div className="background-node" />
       </div>
       <Router>
         <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />

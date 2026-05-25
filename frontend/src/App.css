@@ -48,6 +48,43 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
+}
+
+.app-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(59, 130, 246, 0.14),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(168, 85, 247, 0.12),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 80% 82%,
+      rgba(14, 165, 233, 0.14),
+      transparent 18%
+    );
+}
+
+.app-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 100px 100px;
+  opacity: 0.35;
+  transform: translate(-12px, -12px);
 }
 
 .app-background span {
@@ -104,6 +141,35 @@ body {
   }
 }
 
+.background-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.18);
+}
+
+.background-node:nth-child(1) {
+  top: 24%;
+  left: 18%;
+}
+
+.background-node:nth-child(2) {
+  top: 50%;
+  right: 22%;
+}
+
+.background-node:nth-child(3) {
+  bottom: 18%;
+  left: 28%;
+}
+
+.background-node:nth-child(4) {
+  bottom: 15%;
+  right: 18%;
+}
+
 .app-container {
   position: relative;
   z-index: 1;
@@ -112,16 +178,26 @@ body {
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+  background: rgba(8, 18, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 30px 70px rgba(10, 18, 46, 0.35);
   color: #f8fafc;
 }
 
-.card-body h3,
-.card-body h5 {
+.glass-card .card-body h3,
+.glass-card .card-body h5 {
   color: #f8fafc;
+}
+
+.glass-card .form-control,
+.glass-card .form-select {
+  background: rgba(10, 18, 38, 0.95);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.glass-card .form-control::placeholder {
+  color: rgba(226, 232, 240, 0.65);
 }
 
 .welcome-card {
