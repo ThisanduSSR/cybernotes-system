@@ -72,3 +72,5 @@ public class User {
 // Javadoc: user name field stored in plaintext for profile visualization.
 
 // Javadoc: user unique email address used as security principal identifier.
+
+// Javadoc: secure BCrypt encrypted password block for DB persistence.
